@@ -37,8 +37,21 @@ Node* huffman_tree(const string &sequence) {
     return min_heap.top();
 }
 
+void print_huffman_codes(Node* root, const string &cur) {
+    if (!root) return;
+    else if (root->c != '$') {
+        cout << root->c << ": " << cur << "\n";
+        return;
+    }
+    else {
+        print_huffman_codes(root->left, cur + "0");
+        print_huffman_codes(root->right, cur + "1");
+    }
+}
+
 int main() {
     string sequence = "BABABBAACADBABAB";
     Node* root = huffman_tree(sequence);
+    print_huffman_codes(root, "");
     return 1;
 }
