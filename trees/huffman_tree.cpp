@@ -22,8 +22,7 @@ private:
 
         // store frequencies in map
         unordered_map<char, int> freq;
-        for (char c : sequence)
-            freq[c]++;
+        for (char c : sequence) freq[c]++;
 
         // create min heap
         auto compare = [](Node* l, Node* r) { return l->freq > r->freq; };
